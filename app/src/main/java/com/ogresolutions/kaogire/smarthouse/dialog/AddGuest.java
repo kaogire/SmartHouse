@@ -40,7 +40,7 @@ public class AddGuest extends AppCompatActivity {
                     MySql db = new MySql(AddGuest.this);
                     db.addGuest(guest);
                     Log.i("joe", "Guest created");
-                    Intent intent = new Intent(AddGuest.this, GuestActivity.class);
+                    Intent intent = new Intent(AddGuest.this, GuestActivity.class).setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent);
                 }
             }

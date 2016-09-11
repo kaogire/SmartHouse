@@ -13,15 +13,17 @@ public class Notice {
     String title;
     String body;
     Date timeUp;
+    boolean seen;
 //    int counter;
 
     public Notice (){}
 
-    public Notice(String houseNo, String title, String body, Date timeUp){
+    public Notice(int id, String houseNo, String title, String body, String timeUp){
         this.body = body;
+        this.id = id;
         this.houseNo = houseNo;
         this.title = title;
-        this.timeUp = timeUp;
+        this.timeUp = stringToDate(timeUp);
     }
 
     public Date getTimeUp() {
@@ -60,7 +62,15 @@ public class Notice {
         this.title = title;
     }
 
-//    public int getCounter() {
+    public boolean isSeen() {
+        return seen;
+    }
+
+    public void setSeen(boolean seen) {
+        this.seen = seen;
+    }
+
+    //    public int getCounter() {
 //        return counter;
 //    }
 
@@ -71,7 +81,7 @@ public class Notice {
     public Date stringToDate(String date){
         if(date == null)
             return null;
-        SimpleDateFormat sdf = new SimpleDateFormat("MMM/dd/yyyy HH:mm");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-mm-dd HH:mm:ss");
         ParsePosition pos = new ParsePosition(0);
         Date myDate = sdf.parse(date, pos);
         return myDate;

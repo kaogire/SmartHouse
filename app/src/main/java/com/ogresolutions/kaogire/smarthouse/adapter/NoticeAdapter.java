@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.ogresolutions.kaogire.smarthouse.R;
+import com.ogresolutions.kaogire.smarthouse.model.MyTime;
 import com.ogresolutions.kaogire.smarthouse.objects.Notice;
 
 import java.util.ArrayList;
@@ -17,8 +18,13 @@ import java.util.ArrayList;
  */
 public class NoticeAdapter extends BaseAdapter {
     private ArrayList<Notice> myNotices= new ArrayList<Notice>();
-    private TextView tvHouse, tvTitle, tvTime;
+    private TextView tvHouse, tvTitle, tvTime, tvBody;
     private static LayoutInflater inflater = null;
+
+    @Override
+    public void notifyDataSetChanged() {
+        super.notifyDataSetChanged();
+    }
 
     public NoticeAdapter(Context context, ArrayList<Notice> theNotices){
         this.myNotices = theNotices;
@@ -27,12 +33,12 @@ public class NoticeAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return myNotices.size();
     }
 
     @Override
     public Object getItem(int position) {
-        return null;
+        return position;
     }
 
     @Override
@@ -43,12 +49,20 @@ public class NoticeAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView == null){
-            convertView = inflater.inflate(R.layout.item_notice, parent, false);
+            convertView = inflater.inflate(R.layout.notice_item, parent, false);
         }
+
         Notice myNotice = myNotices.get(position);
         tvHouse = (TextView)convertView.findViewById(R.id.tvNoticeHouse);
-        tvHouse = (TextView)convertView.findViewById(R.id.tvNoticeTime);
-        tvHouse = (TextView)convertView.findViewById(R.id.tvNoticeTitle);
+        tvTime = (TextView)convertView.findViewById(R.id.tvNoticeTime);
+        tvTitle = (TextView)convertView.findViewById(R.id.tvNoticeTitle);
+        tvBody = (TextView)convertView.findViewById(R.id.tvNoticeBodyF);
+
+        tvHouse.setText(myNotice.getHouseNo());
+        tvTitle.setText(myNotice.getTitle());
+//        tvBody.setText(myNotice.getBody());
+
+        tvTime.setText(MyTime.displayDate(myNotice.getTimeUp()));
 
         return convertView;
     }

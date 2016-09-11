@@ -55,8 +55,8 @@ public class GuestAdapter extends BaseAdapter {
             tvTimeOut.setText(guest.getTimeOut().toString());
         }
         else{
-            tvTimeIn.setText(" ");
-            tvTimeOut.setText(" ");
+            tvTimeIn.setVisibility(View.INVISIBLE);
+            tvTimeOut.setVisibility(View.INVISIBLE);
         }
         return convertView;
     }

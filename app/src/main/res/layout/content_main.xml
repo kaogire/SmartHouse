@@ -9,7 +9,6 @@
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.ogresolutions.kaogire.smarthouse.activities.MainActivity"
     tools:showIn="@layout/activity_main">
-    >
 
     <Button
         android:layout_width="match_parent"

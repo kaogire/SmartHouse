@@ -6,27 +6,60 @@ import java.util.Date;
  * Created by Njuguna on 4/26/2016.
  */
 public class Service {
+    int diff, id;
     String type, amountDue;
-    Boolean settled = false;
-    Date timeDue, timePaid;
+    double penalty;
+    Boolean settled, overDue;
+    Date dateDue, datePaid;
 
     public Service(){}
-    public Service(String type, String amountDue, Date timeDue){
+    public Service(int id, String type, String amountDue, Date dateDue, int diff){
         this.amountDue = amountDue;
-        this.timeDue = timeDue;
+        this.dateDue = dateDue;
+        this.id = id;
         this.type = type;
+//        this.penalty = penalty;
+        this.overDue = diff < 0;
+    }
+
+    public Service(int id, String type, String amountDue, Date dateDue, int diff, Date datePaid, boolean settled){
+        this.amountDue = amountDue;
+        this.id = id;
+        this.dateDue = dateDue;
+        this.type = type;
+        this.penalty = penalty;
+        this.overDue = diff < 0;
+        this.settled = settled;
+        this.datePaid = datePaid;
+    }
+
+
+    public Boolean getOverDue() {
+        return overDue;
+    }
+
+    public void setOverDue(Boolean overDue) {
+        this.overDue = overDue;
+    }
+
+    public void setPenalty(double penalty) {
+        this.penalty = penalty;
+    }
+
+    public double getPenalty() {
+        return penalty;
     }
 
     public Boolean getSettled() {
         return settled;
     }
 
-    public Date getTimeDue() {
-        return timeDue;
+    public Date getDateDue() {
+        return dateDue;
     }
 
-    public Date getTimePaid() {
-        return timePaid;
+    public Date getDatePaid() {
+        return datePaid;
     }
 
     public String getAmountDue() {
@@ -45,12 +78,12 @@ public class Service {
         this.settled = settled;
     }
 
-    public void setTimeDue(Date timeDue) {
-        this.timeDue = timeDue;
+    public void setDateDue(Date dateDue) {
+        this.dateDue = dateDue;
     }
 
-    public void setTimePaid(Date timePaid) {
-        this.timePaid = timePaid;
+    public void setDatePaid(Date datePaid) {
+        this.datePaid = datePaid;
     }
 
     public void setType(String type) {

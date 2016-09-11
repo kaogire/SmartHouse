@@ -43,6 +43,7 @@
             android:id="@+id/btnGuestCancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            style="?attr/borderlessButtonStyle"
             android:layout_gravity="right"
             android:text="cancel" />
 
@@ -51,6 +52,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"
+            style="?attr/borderlessButtonStyle"
             android:text="ok" />
     </LinearLayout>
 

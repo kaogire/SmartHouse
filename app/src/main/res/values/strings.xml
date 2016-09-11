@@ -1,4 +1,19 @@
 <resources>
     <string name="app_name">SmartHouse</string>
     <string name="action_settings">Settings</string>
+    <string-array name="complaint_type">
+        <item>Repairs</item>
+        <item>Services</item>
+    </string-array>
+    <string-array name="repair_list">
+        <item>Electrical</item>
+        <item>Plumbing</item>
+        <item>Carpentry</item>
+    </string-array>
+    <string-array name="service_types">
+        <item>Bills</item>
+        <item>Disturbance</item>
+        <item>Parking</item>
+        <item>Security</item>
+    </string-array>
 </resources>
